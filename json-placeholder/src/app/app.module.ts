@@ -8,6 +8,8 @@ import { PostPageComponent } from './components/post-page/post-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UpdatePageComponent } from './components/update-page/update-page.component';
 import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { UserPreviewComponent } from './components/user-preview/user-preview.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import {FormsModule} from "@angular/forms";
     GetPageComponent,
     PostPageComponent,
     HeaderComponent,
-    UpdatePageComponent
+    UpdatePageComponent,
+    UserPreviewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
