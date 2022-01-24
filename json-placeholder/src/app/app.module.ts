@@ -8,6 +8,7 @@ import { PostPageComponent } from './components/post-page/post-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UpdatePageComponent } from './components/update-page/update-page.component';
 import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
