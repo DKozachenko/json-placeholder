@@ -4,5 +4,7 @@
   <p>Email: {{ user.email }}</p>
   <p>Phone: {{ user.phone }}</p>
   <p>Website: {{ user.website }}</p>
-  <button class="btn btn-primary">Показать больше</button>
+  <button class="btn btn-primary"
+          [routerLink]="['/user', user.id]"
+  >Показать больше</button>
 </div>

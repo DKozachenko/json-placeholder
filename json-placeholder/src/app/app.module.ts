@@ -10,6 +10,7 @@ import { UpdatePageComponent } from './components/update-page/update-page.compon
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { UserPreviewComponent } from './components/user-preview/user-preview.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserPreviewComponent } from './components/user-preview/user-preview.com
     PostPageComponent,
     HeaderComponent,
     UpdatePageComponent,
-    UserPreviewComponent
+    UserPreviewComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
