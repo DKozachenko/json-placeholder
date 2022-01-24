@@ -10,7 +10,7 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  public getUsers(): Observable<UserInterface[]> {
-    return this.http.get<UserInterface[]>(`https://jsonplaceholder.typicode.com/users`)
+  public getUsers(limit: number): Observable<UserInterface[]> {
+    return this.http.get<UserInterface[]>(`https://jsonplaceholder.typicode.com/users?_limit=${limit}`)
   }
 }

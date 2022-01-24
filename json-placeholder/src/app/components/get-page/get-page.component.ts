@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserInterface} from "../../interfaces/user.interface";
 import {UsersService} from "../../services/users.service";
+import {delay} from "rxjs";
 
 @Component({
   selector: 'app-get-page',
@@ -10,17 +11,27 @@ import {UsersService} from "../../services/users.service";
 export class GetPageComponent implements OnInit {
   public numberUsers: number = 1
   public users: UserInterface[] = []
+  public isLoading: boolean = false
 
   constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
-    this.getUsers()
+
   }
 
   public getUsers(): void {
-    this.usersService.getUsers().subscribe((users: UserInterface[]) => {
-      this.users = users
-    })
+    this.isLoading = true
+
+    this.usersService.getUsers(this.numberUsers)
+      .pipe(
+        delay(2000)
+      )
+      .subscribe((users: UserInterface[]) => {
+        this.users = users
+        this.isLoading = false
+
+      })
+
   }
 
 }
