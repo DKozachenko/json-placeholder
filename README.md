@@ -1,2 +1,2 @@
 # json-placeholder  
-Simple todo-app by Angular 13 using jsonplaceholder to work with data
+Simple todo-app by Angular 13 using bootstrap 5 for styles and json placeholder to work with data
