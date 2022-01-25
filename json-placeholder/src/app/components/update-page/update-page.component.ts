@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UsersService} from "../../services/users.service";
 import {UserInterface} from "../../interfaces/user.interface";
@@ -9,21 +9,46 @@ import {UpdateUserInterface} from "../../interfaces/updateUser.interface";
   templateUrl: './update-page.component.html',
   styleUrls: ['./update-page.component.sass']
 })
-export class UpdatePageComponent implements OnInit {
+export class UpdatePageComponent implements OnInit, AfterViewInit {
 
   public form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    name: new FormControl(''),
-    email: new FormControl(''),
-    phone: new FormControl(''),
-    website: new FormControl('')
+    username: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('', Validators.required),
+    website: new FormControl('', Validators.required)
   })
 
   @ViewChild('select') public select: ElementRef = new ElementRef<any>('select')
 
+  public updateUser: UpdateUserInterface = {
+    name: '',
+    username: '',
+    email: '',
+    phone: '',
+    website: ''
+  }
+
   constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    this.changeUserData()
+  }
+
+  public changeUserData(): void {
+    const id: number = +this.select.nativeElement.value
+
+    this.usersService.getUser(id)
+      .subscribe((user: UserInterface) => {
+        this.updateUser.username = user.username
+        this.updateUser.name = user.name
+        this.updateUser.email = user.email
+        this.updateUser.phone = user.phone
+        this.updateUser.website = user.website
+      })
   }
 
   public submit(): void {

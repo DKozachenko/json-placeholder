@@ -3,13 +3,13 @@
     <div class="preview">
       <h1 class="text-center mb-5">Обновить пользователя</h1>
 
-      <form class="form border border-2 border-dark p-2"
+      <form class="form border border-2 border-dark p-4"
             [formGroup]="form"
             (ngSubmit)="submit()"
       >
         <div class="mb-3">
           <label class="form-label">Идентификатор пользователя</label>
-          <select class="form-select" #select>
+          <select class="form-select" #select (change)="changeUserData()">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -31,6 +31,7 @@
                  id="exampleFormControlInput1"
                  placeholder="Ник"
                  formControlName="username"
+                 [value]="updateUser.username"
           >
 
           <div class="errors mt-2 border border-1 border-dark p-2"
@@ -51,6 +52,7 @@
                  id="exampleFormControlInput2"
                  placeholder="Имя"
                  formControlName="name"
+                 [value]="updateUser.name"
           >
 
           <div class="errors mt-2 border border-1 border-dark p-2"
@@ -71,6 +73,7 @@
                  id="exampleFormControlInput3"
                  placeholder="Почта"
                  formControlName="email"
+                 [value]="updateUser.email"
           >
 
           <div class="errors mt-2 border border-1 border-dark p-2"
@@ -96,6 +99,7 @@
                  id="exampleFormControlInput4"
                  placeholder="Телефон"
                  formControlName="phone"
+                 [value]="updateUser.phone"
           >
 
           <div class="errors mt-2 border border-1 border-dark p-2"
@@ -116,6 +120,7 @@
                  id="exampleFormControlInput5"
                  placeholder="Сайт"
                  formControlName="website"
+                 [value]="updateUser.website"
           >
 
           <div class="errors mt-2 border border-1 border-dark p-2"
