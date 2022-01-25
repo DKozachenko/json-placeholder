@@ -13,4 +13,8 @@ export class UsersService {
   public getUsers(limit: number): Observable<UserInterface[]> {
     return this.http.get<UserInterface[]>(`https://jsonplaceholder.typicode.com/users?_limit=${limit}`)
   }
+
+  public getUser(id: number) {
+    return this.http.get<UserInterface>(`https://jsonplaceholder.typicode.com/users/${id}`)
+  }
 }
