@@ -19,7 +19,7 @@ export class UpdatePageComponent implements OnInit {
     website: new FormControl('')
   })
 
-  @ViewChild('select') public select = new ElementRef<any>('select')
+  @ViewChild('select') public select: ElementRef = new ElementRef<any>('select')
 
   constructor(private usersService: UsersService) { }
 

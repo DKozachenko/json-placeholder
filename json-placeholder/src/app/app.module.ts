@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { UserPreviewComponent } from './components/user-preview/user-preview.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
+import { DeletePageComponent } from './components/delete-page/delete-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserPageComponent } from './components/user-page/user-page.component';
     HeaderComponent,
     UpdatePageComponent,
     UserPreviewComponent,
-    UserPageComponent
+    UserPageComponent,
+    DeletePageComponent
   ],
   imports: [
     BrowserModule,
