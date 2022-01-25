@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {UserInterface} from "../interfaces/user.interface";
+import {UpdateUserInterface} from "../interfaces/updateUser.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,9 @@ export class UsersService {
 
   public sendUser(user: UserInterface): Observable<UserInterface> {
     return this.http.post<UserInterface>(`https://jsonplaceholder.typicode.com/users/`, user)
+  }
+
+  public updateUser(id: number, user: UpdateUserInterface): Observable<UserInterface> {
+    return this.http.patch<UserInterface>(`https://jsonplaceholder.typicode.com/users/${id}`, user)
   }
 }
