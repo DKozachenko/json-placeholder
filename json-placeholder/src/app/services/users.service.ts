@@ -26,4 +26,8 @@ export class UsersService {
   public updateUser(id: number, user: UpdateUserInterface): Observable<UserInterface> {
     return this.http.patch<UserInterface>(`https://jsonplaceholder.typicode.com/users/${id}`, user)
   }
+
+  public deleteUser(id: number): Observable<void> {
+    return this.http.delete<void>(`https://jsonplaceholder.typicode.com/users/${id}`)
+  }
 }
