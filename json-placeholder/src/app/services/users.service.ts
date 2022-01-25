@@ -17,4 +17,8 @@ export class UsersService {
   public getUser(id: number) {
     return this.http.get<UserInterface>(`https://jsonplaceholder.typicode.com/users/${id}`)
   }
+
+  public sendUser(user: UserInterface): Observable<UserInterface> {
+    return this.http.post<UserInterface>(`https://jsonplaceholder.typicode.com/users/`, user)
+  }
 }

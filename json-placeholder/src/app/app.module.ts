@@ -7,7 +7,7 @@ import { GetPageComponent } from './components/get-page/get-page.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UpdatePageComponent } from './components/update-page/update-page.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { UserPreviewComponent } from './components/user-preview/user-preview.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
@@ -26,7 +26,8 @@ import { UserPageComponent } from './components/user-page/user-page.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
