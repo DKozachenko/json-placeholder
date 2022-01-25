@@ -1,0 +1,26 @@
+<div class="user-page py-5">
+  <div class="container">
+    <div class="title text-center mb-5">
+      <h1>Пользователь с id: {{ user.id ? user.id : '' }}</h1>
+    </div>
+
+    <div *ngIf="!isLoading; else loading" class="content d-flex justify-content-center align-items-center">
+      <div class="card p-4 border-3 border-primary">
+        <p>Ник: {{ user.username }}</p>
+        <p>Имя: {{ user.name }}</p>
+        <p>Почта: {{ user.email }}</p>
+        <p>Адрес: {{ user.address.city }}, {{ user.address.street }}, {{ user.address.suite }}</p>
+        <p>Телефон: {{ user.phone }}</p>
+        <p>Сайт: {{ user.website }}</p>
+        <p>Компания: {{ user.company.name }}</p>
+
+        <button class="btn btn-primary" (click)="back()">Назад</button>
+      </div>
+    </div>
+
+    <ng-template #loading>
+      <p class="loading">Загрузка</p>
+    </ng-template>
+
+  </div>
+</div>

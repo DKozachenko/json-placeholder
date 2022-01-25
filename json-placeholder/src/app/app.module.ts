@@ -3,14 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GetPageComponent } from './components/get-page/get-page.component';
+import { PostPageComponent } from './components/post-page/post-page.component';
+import { HeaderComponent } from './components/header/header.component';
+import { UpdatePageComponent } from './components/update-page/update-page.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { UserPreviewComponent } from './components/user-preview/user-preview.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
+import { DeletePageComponent } from './components/delete-page/delete-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GetPageComponent,
+    PostPageComponent,
+    HeaderComponent,
+    UpdatePageComponent,
+    UserPreviewComponent,
+    UserPageComponent,
+    DeletePageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
