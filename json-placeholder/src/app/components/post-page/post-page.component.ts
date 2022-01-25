@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {UserInterface} from "../../interfaces/user.interface";
+import {UsersService} from "../../services/users.service";
 
 @Component({
   selector: 'app-post-page',
@@ -15,13 +17,36 @@ export class PostPageComponent implements OnInit {
     website: new FormControl('', Validators.required)
   })
 
-  constructor() { }
+  constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
   }
 
   public submit(): void {
-    console.log(this.form)
+    const value = this.form.value
+    const newUser: UserInterface = {
+      ...value,
+      address: {
+        street: 'street',
+        suite: 'suite',
+        city: 'city',
+        zipcode: '45345',
+        geo: {
+          lat: '-463.4',
+          lng: '342.0'
+        }
+      },
+      company: {
+        name: 'name',
+        catchPhrase: 'catch',
+        bs: 'bs'
+      }
+    }
+
+    this.usersService.sendUser(newUser)
+      .subscribe((user: UserInterface) => {
+        this.form.reset()
+      })
   }
 
 }
