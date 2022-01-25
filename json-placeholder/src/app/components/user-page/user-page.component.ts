@@ -3,6 +3,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {UserInterface} from "../../interfaces/user.interface";
 import {UsersService} from "../../services/users.service";
 import {Location} from "@angular/common";
+import {delay} from "rxjs";
 
 @Component({
   selector: 'app-user-page',
@@ -34,17 +35,26 @@ export class UserPageComponent implements OnInit {
     }
   }
 
+  public isLoading: boolean = false
+
   constructor(private route: ActivatedRoute,
               private usersService: UsersService,
               private location: Location) { }
 
   ngOnInit(): void {
+    this.isLoading = true
+
     this.route.params.subscribe((params: Params) => {
       const id: number = +params['id']
 
-      this.usersService.getUser(id).subscribe((user: UserInterface) => {
-        this.user = user
-      })
+      this.usersService.getUser(id)
+        .pipe(
+          delay(1200)
+        )
+        .subscribe((user: UserInterface) => {
+          this.user = user
+          this.isLoading = false
+        })
 
     })
   }
